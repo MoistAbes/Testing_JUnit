@@ -115,7 +115,7 @@ public class ExampleText {
      */
 
     @Nested
-    @DisplayName("When a shave has beed created")
+    @DisplayName("When a shave has been created")
     class WhenShapeExist{
         private final Shape shape = new Shape(4);
 
@@ -177,6 +177,41 @@ public class ExampleText {
             @DisplayName("Two objects of type square are not the same")
             void twoObjectsOfTypeSquareAreNotTheSame(){
                 assertNotEquals(new Square(), square);
+            }
+        }
+    }
+
+    @Nested
+    @DisplayName("When Triangle is created")
+    class WhenTriangleIsCreated{
+        Triangle triangle = new Triangle();
+
+        @Nested
+        @DisplayName("Should allow")
+        class ShouldAllow{
+
+            @Test
+            @DisplayName("Seeing the description")
+            void seeingTheDesciprion(){
+                assertEquals("I'am triangle", triangle.description());
+            }
+
+            @Test
+            @DisplayName("Seeing the number of sides")
+            void seeingTheNumberOfSides(){
+                assertEquals(3, triangle.getNumberOfSides());
+            }
+
+        }
+
+        @Nested
+        @DisplayName("Should not allow")
+        class ShouldNotAllow{
+
+            @Test
+            @DisplayName("beeing equals to another triangle of the same values")
+            void beeingEqualsToAnotherTriangeOfTheSameValues(){
+                assertNotEquals(triangle, new Triangle());
             }
         }
     }
