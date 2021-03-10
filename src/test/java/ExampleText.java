@@ -2,7 +2,7 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import java.awt.*;
+
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -104,7 +104,8 @@ public class ExampleText {
     @ValueSource(ints = {1, 2, Integer.MAX_VALUE})
     void testingAssertThrows(int expectedNumber) {
 
-        assertThrows(IllegalArgumentException.class, () -> new Shape(expectedNumber));
+        assertThrows(IllegalArgumentException.class,
+                () -> new Shape(expectedNumber));
 
         //fail("not implemented");
     }
@@ -155,6 +156,12 @@ public class ExampleText {
         @Nested
         @DisplayName("Should allow")
         class ShouldAllow{
+
+            @Test
+            @DisplayName("using methods of shape class")
+            void usingMethodsOfShapeClass(){
+                assertEquals("I'm just a shape", square.imWeird());
+            }
 
             @Test
             @DisplayName("Seeing the description")

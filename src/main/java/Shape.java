@@ -12,6 +12,10 @@ public class Shape {
         return "I'm a shape";
     }
 
+    public String imWeird(){
+        return "I'm just a shape";
+    }
+
     public int getNumberOfSides() {
         return numberOfSides;
     }
